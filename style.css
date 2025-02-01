@@ -1,0 +1,236 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keeps canvas behind other content */
+  background-color: black;
+}
+
+.hexagon-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(10, 10, 10, 0.8);
+  transform-style: preserve-3d;
+}
+
+.hexagon {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.1);
+  clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  animation: floatHexagons 20s infinite linear;
+  transform-origin: center;
+}
+
+@keyframes floatHexagons {
+  0% {
+    transform: translateZ(0) rotateY(0deg) translateY(100vh) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateZ(50px) rotateY(180deg) translateY(50vh) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateZ(0) rotateY(360deg) translateY(-100vh) scale(1);
+    opacity: 0.3;
+  }
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  color: white;
+}
+
+svg {
+  width: 200px;
+  height: 200px;
+}
+
+circle {
+  fill: none;
+  stroke: #d3c6b1;
+  stroke-width: 1;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.1s ease;
+}
+
+text {
+  fill: #d3c6b1;
+  font-size: 10px;
+}
+
+.loading-image {
+  width: 95px;
+  height: 95px;
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.completed h1 {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.completed p {
+  color: #bbbbbb;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.completed button a {
+  padding: 20px 14px;
+  background-color: black;
+  color: white;
+}
+
+.arrow {
+  font-size: 40px;
+  color: #d3c6b1;
+  margin-top: 20px;
+  animation: blink 1.5s infinite;
+  cursor: pointer;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+#completed button {
+background-color: transparent; /* A professional blue tone */
+color: white;
+border: none;
+border-radius: 50px;
+padding: 10px 20px; 
+cursor: pointer;
+font-size: 16px;
+text-transform: uppercase; 
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease; 
+margin-top: 10px;
+border: 1px solid white;
+}
+
+#completed button a {
+color: white;
+text-decoration: none;
+font-family: Arial, sans-serif; 
+}
+
+#completed button:hover {
+transform: translateY(-3px); 
+box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+background-color: #838282; 
+}
+
+
+.mentor-section {
+  padding: 50px;
+  background: #f5f5f5;
+}
+
+.mentor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mentor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mentor-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.mentor-card h3 {
+  margin: 10px 0;
+  color: #333;
+}
+
+.mentor-card p {
+  margin-bottom: 15px;
+  color: #666;
+  text-align: center;
+  justify-content: jus;
+}
+
+.mentor-card button {
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mentor-card button a {
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.mentor-card button:hover a {
+  background-color: #005582;
+}
+
+.mentor-card button:hover {
+  background-color: #005582;
+}
+
+.mentor-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
